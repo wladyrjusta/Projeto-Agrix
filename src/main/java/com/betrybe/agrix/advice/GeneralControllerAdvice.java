@@ -62,6 +62,22 @@ public class GeneralControllerAdvice {
   }
 
   /**
+   * Manipula exceções do tipo IllegalArgumentException e retorna uma resposta HTTP com
+   * status de BadRequest (400) e uma mensagem de erro indicando que o valor de 'role' é inválido.
+   *
+   * @param exception A exceção IllegalArgumentException lançada.
+   * @return Uma resposta HTTP com status de BadRequest e uma mensagem de erro.
+   */
+  @ExceptionHandler(IllegalArgumentException.class)
+  public  ResponseEntity<String> handlerIllegalArgumentException(
+      IllegalArgumentException exception
+  ) {
+    return ResponseEntity
+        .status(HttpStatus.BAD_REQUEST)
+        .body("Valor de 'role' inválido");
+  }
+
+  /**
    * Manipula exceções da classe `RuntimeException` e retorna uma resposta HTTP 400 (Bad Request)
    * com a mensagem da exceção.
    *

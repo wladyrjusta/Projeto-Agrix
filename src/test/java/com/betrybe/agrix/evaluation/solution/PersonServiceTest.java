@@ -4,11 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 
-import com.betrybe.agrix.ebytr.staff.entity.Person;
-import com.betrybe.agrix.ebytr.staff.exception.PersonNotFoundException;
-import com.betrybe.agrix.ebytr.staff.repository.PersonRepository;
-import com.betrybe.agrix.ebytr.staff.security.Role;
-import com.betrybe.agrix.ebytr.staff.service.PersonService;
+import com.betrybe.agrix.models.entities.Person;
+import com.betrybe.agrix.exceptions.PersonNotFoundException;
+import com.betrybe.agrix.models.repositories.PersonRepository;
+import com.betrybe.agrix.security.Role;
+import com.betrybe.agrix.services.PersonService;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
