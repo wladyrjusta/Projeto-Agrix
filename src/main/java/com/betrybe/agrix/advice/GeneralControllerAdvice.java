@@ -76,47 +76,5 @@ public class GeneralControllerAdvice {
         .status(HttpStatus.BAD_REQUEST)
         .body("Valor de 'role' inválido");
   }
-
-  /**
-   * Manipula exceções da classe `RuntimeException` e retorna uma resposta HTTP 400 (Bad Request)
-   * com a mensagem da exceção.
-   *
-   * @param exception A exceção `RuntimeException` lançada.
-   * @return Uma resposta HTTP com status 400 e a mensagem da exceção.
-   */
-  @ExceptionHandler(RuntimeException.class)
-  public ResponseEntity<String> handleRuntimeException(RuntimeException exception) {
-    return ResponseEntity
-        .status(HttpStatus.BAD_REQUEST)
-        .body(exception.getMessage());
-  }
-
-  /**
-   * Manipula exceções da classe `Exception` e retorna uma resposta HTTP 500 (Internal Server Error)
-   * com a mensagem da exceção.
-   *
-   * @param exception A exceção `Exception` lançada.
-   * @return Uma resposta HTTP com status 500 e a mensagem da exceção.
-   */
-  @ExceptionHandler(Exception.class)
-  public ResponseEntity<String> handleException(Exception exception) {
-    return ResponseEntity
-        .status(HttpStatus.INTERNAL_SERVER_ERROR)
-        .body(exception.getMessage());
-  }
-
-  /**
-   * Manipula exceções da classe `Throwable` e retorna uma resposta HTTP 502 (Bad Gateway)
-   * com a mensagem da exceção.
-   *
-   * @param exception A exceção `Throwable` lançada.
-   * @return Uma resposta HTTP com status 502 e a mensagem da exceção.
-   */
-  @ExceptionHandler(Throwable.class)
-  public ResponseEntity<String> handleThrowable(Throwable exception) {
-    return ResponseEntity
-        .status(HttpStatus.BAD_GATEWAY)
-        .body(exception.getMessage());
-  }
 }
 
