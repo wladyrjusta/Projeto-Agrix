@@ -29,4 +29,19 @@ public class TokenService {
         .withSubject(person.getUsername())
         .sign(algorithm);
   }
+
+  /**
+   * Valida um token JWT e retorna o assunto (subject) do token se for válido.
+   *
+   * @param token O token JWT a ser validado.
+   * @return O assunto (subject) do token, se válido, ou null se inválido.
+   */
+  public String validateToken(String token) {
+    Algorithm algorithm = Algorithm.HMAC256(secret);
+    return JWT.require(algorithm)
+        .withIssuer("agrix")
+        .build()
+        .verify(token)
+        .getSubject();
+  }
 }
